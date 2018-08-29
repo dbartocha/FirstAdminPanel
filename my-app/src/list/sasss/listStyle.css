@@ -1,0 +1,85 @@
+.list {
+  height: 100vh;
+  background-image: url("../photo/list.jpeg");
+  color: aliceblue;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+  .list li {
+    text-align: center;
+    font-size: 15px;
+    list-style: none; }
+
+.listEl {
+  height: 300px;
+  width: 600px;
+  color: black;
+  background: white;
+  border-radius: 15px; }
+
+.listButton {
+  box-shadow: 10px 10px 5px 0 rgba(0, 0, 0, 0.75);
+  display: inline-block;
+  border-radius: 4px;
+  background: dodgerblue;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 30px;
+  padding: 20px;
+  width: 100px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px; }
+
+.listButton2 {
+  box-shadow: 10px 10px 5px 0 rgba(0, 0, 0, 0.75);
+  display: inline-block;
+  border-radius: 4px;
+  background: dodgerblue;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 20px;
+  padding: 20px;
+  width: 200px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px; }
+
+.listButton2:active {
+  transition: 0.5s;
+  box-shadow: none;
+  transform: translateY(7px); }
+
+.listButton:active {
+  transition: 0.5s;
+  box-shadow: none;
+  transform: translateY(7px); }
+
+.listButton span {
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s; }
+
+.listButton span:visited {
+  text-decoration: none; }
+
+.listButton span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s; }
+
+.listButton:hover span {
+  padding-right: 25px; }
+
+.listButton:hover span:after {
+  opacity: 1;
+  right: 0; }
