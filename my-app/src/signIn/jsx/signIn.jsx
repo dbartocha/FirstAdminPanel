@@ -39,7 +39,7 @@ class SignIn extends React.Component {
         }
         else {
             firebase.auth().signInWithEmailAndPassword(this.state.email, this.state.password)
-                .then(() => this.props.history.push('/list'))
+                .then(() => this.props.history.push('/main'))
                 .catch( (error)=> {
 
                     this.setState({

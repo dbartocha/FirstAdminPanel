@@ -1,0 +1,27 @@
+.mainAdminPage {
+  height: 100vh;
+  background-image: url("./main.jpg"); }
+
+.headerAdminPage {
+  font-weight: bold;
+  padding-top: 25px;
+  color: white;
+  text-align: center;
+  font-size: 50px; }
+
+.centerMainPage {
+  margin-top: 60px;
+  text-align: center;
+  text-decoration: none; }
+  .centerMainPage h2 {
+    color: white;
+    font-size: 45px; }
+  .centerMainPage li {
+    cursor: pointer;
+    font-size: 30px;
+    list-style: none;
+    color: white;
+    margin-top: 10px; }
+
+a {
+  text-decoration: none; }

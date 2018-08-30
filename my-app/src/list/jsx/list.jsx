@@ -2,29 +2,47 @@ import React from 'react';
 import '../sasss/listStyle.css';
 import {Link} from 'react-router-dom';
 import * as firebase from "firebase";
-import {Storage as storage} from "firebase";
+
 
 
 class List extends React.Component{
 
     state={
 
-        list:[]
+        list1:[],
+        list2:[]
 
 
 
     };
-handleDownload=()=> {
 
+    componentDidMount() {
 
+        firebase.database().ref('/images').on('value', snap => {
+            let value = snap.val();
 
-        const images = firebase.storage().ref().child('images/');
-
-
-        images.getDownloadURL().then((url) => {console.log(url);  });
-
-
-};
+            for (let key in value) {
+                if (value[key].category === 'gallery') {
+                    firebase
+                        .storage()
+                        .ref(value[key].path)
+                        .getDownloadURL()
+                        .then(url => this.setState({
+                            list1: [...this.state.list1, url]
+                        }))
+                }
+                else{
+                    firebase
+                        .storage()
+                        .ref(value[key].path)
+                        .getDownloadURL()
+                        .then(url => this.setState({
+                            list2: [...this.state.list2, url]
+                        }))
+                }
+            }
+        });
+    }
 
 
 
@@ -32,24 +50,52 @@ handleDownload=()=> {
     render(){
         return(
             <div className="list">
-                <div className="listEl">
-                <ul>
-                    <li>costamcostam</li>
-                    <li>costamcostam</li>
-                    <li>costamcostam</li>
-                    <li>costamcostam</li>
-                    <li>costamcostam</li>
+
+                <div className="listEl" style={{marginTop:'20px',marginRight:'10px',textAlign:'center'}}>
+                    <span style={{fontSize:'25px'}}>Lista z elementami galerii</span>
+                <ul style={{display: 'flex'}} className="elementsInList">
+                    {
+                        this.state.list1.map(item => {
+                            return (
+                                <li>
+                                    <img className="images" src={item} alt={item}/>
+
+                                </li>
+                            )
+                        })
+                    }
+
                 </ul>
-                    <div style={{marginTop:'10%', display:'flex',justifyContent:'center'}}>
-<div style={{marginTop:'5px'}}>
-                    <Link to="/upload"> <button className="listButton"><span>+</span></button></Link>
-</div>
-                        <div>
-                    <button onClick={this.handleDownload} className="listButton2">Pokaż aktualne zdjęcia</button>
-                        </div>
+
                 </div>
-                </div>div>
-            </div>
+                <div className="listEl" style={{marginTop:'20px',marginLeft:'10px',textAlign:'center'}}>
+                    <span style={{fontSize:'25px',}}>Lista z elementami slidera</span>
+                    <ul style={{display: 'flex'}} >
+                        {
+                            this.state.list2.map(item => {
+                                return (
+                                    <li>
+                                        <img className="images" src={item}/>
+                                    </li>
+                                )
+                            })
+                        }
+
+                    </ul>
+
+                </div>
+                <div style={{marginTop:'10%', display:'flex',justifyContent:'space-around'}}>
+                    <div style={{marginTop:'5px'}}>
+                        <Link to="/upload"> <button className="listButton"><span>Przejdź do dodawania zdjęć</span></button></Link>
+
+                    </div>
+                    <div style={{marginTop:'5px'}}>
+                        <Link to="/main"> <button className="listButton2"><span>Strona główna</span></button></Link>
+
+                    </div>
+                </div>
+
+                </div>
         )
     }
 }

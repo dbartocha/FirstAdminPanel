@@ -23,17 +23,20 @@
     font-size: 20px; }
 
 .overUploadButton {
+  position: relative;
   float: right;
   padding-top: 50px; }
 
 .centerButtons {
+  position: absolute;
+  flex-direction: row;
   display: flex;
   justify-content: center; }
 
 .uploadButton {
   box-shadow: 10px 10px 5px 0 rgba(0, 0, 0, 0.75);
   display: inline-block;
-  border-radius: 4px;
+  border-radius: 7px;
   background: dodgerblue;
   border: none;
   color: #FFFFFF;
@@ -76,3 +79,59 @@
 .uploadButton:hover span:after {
   opacity: 1;
   right: 0; }
+
+.uploadButton2 {
+  left: 330px;
+  top: 55px;
+  position: absolute;
+  height: 90px;
+  box-shadow: 10px 10px 5px 0 rgba(0, 0, 0, 0.75);
+  display: inline-block;
+  border-radius: 7px;
+  background: dodgerblue;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 20px;
+  padding: 20px;
+  width: 150px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin-right: 7px; }
+
+.uploadButton2:active {
+  transition: 0.5s;
+  box-shadow: none;
+  transform: translateY(7px); }
+
+.uploadButton2 span {
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s; }
+
+.uploadButton2 span:visited {
+  text-decoration: none; }
+
+.uploadButton2 span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s; }
+
+.uploadButton2:hover span {
+  padding-right: 15px; }
+
+.uploadButton2:hover span:after {
+  opacity: 1;
+  right: 0; }
+
+.uploader {
+  display: inline-block;
+  --webkit-appearance: none;
+  width: 50%; }
