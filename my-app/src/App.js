@@ -10,7 +10,7 @@ import Upload from './upload/jsx/upload'
 import List from './list/jsx/list';
 import MainPage from './mainPage/jsx/mainPage'
 import UploadTxt from './uploadTxt/jsx/uploadTxt'
-
+import TxtList from './textlist/jsx/txtList'
 class App extends Component {
     render() {
         return (
@@ -22,6 +22,7 @@ class App extends Component {
                         <Route exact path='/upload' component={Upload}/>
                         <Route exact path='/list' component={List}/>
                         <Route exact path='/uploadtxt' component={UploadTxt}/>
+                        <Route exact path='/txtlist' component={TxtList}/>
                     </Switch>
                 </div>
             </HashRouter>

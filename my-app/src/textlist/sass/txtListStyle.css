@@ -1,0 +1,26 @@
+.insideList {
+  border-radius: 10px;
+  width: 500px;
+  height: 500px;
+  background: #FFFFFF; }
+
+.txtList {
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-image: url("./txtList.jpeg"); }
+
+li {
+  list-style: none; }
+
+.listOfButtons {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 60px; }
+
+.showTextButton:active {
+  transition: 0.5s;
+  box-shadow: none;
+  transform: translateY(7px); }
