@@ -45,9 +45,17 @@ class List extends React.Component{
     }
 
 
+    handleClick=()=>{
 
+
+
+
+    };
 
     render(){
+
+
+
         return(
             <div className="list">
 
@@ -57,8 +65,9 @@ class List extends React.Component{
                     {
                         this.state.list1.map(item => {
                             return (
-                                <li>
+                                <li style={{display:'flex', flexDirection:'column', marginLeft:'10px'}}>
                                     <img className="images" src={item} alt={item}/>
+                                    <button> Usuń </button>
 
                                 </li>
                             )
@@ -74,8 +83,9 @@ class List extends React.Component{
                         {
                             this.state.list2.map(item => {
                                 return (
-                                    <li>
-                                        <img className="images" src={item}/>
+                                    <li style={{display:'flex', flexDirection:'column', marginLeft:'10px'}}>
+                                        <img className="images" src={item} alt={item}/>
+                                        <button onClick={this.handleClick}> Usuń </button>
                                     </li>
                                 )
                             })

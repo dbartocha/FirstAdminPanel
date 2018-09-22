@@ -10,7 +10,8 @@ import * as firebase from "firebase";
 class TxtList extends React.Component{
 
     state={
-        text:[]
+        text:[],
+        id:''
     };
 
     componentDidMount(){
@@ -30,9 +31,31 @@ class TxtList extends React.Component{
         })
 
     }
+    handleRemoveTxt=()=>{
+        firebase.database().ref('text').on("value", snap => {
 
+            console.log(snap);
+
+            console.log(snap.val());
+
+            this.state.text.forEach((el)=>{
+
+                if(el===snap.val()){
+                    this.setState({
+                        id:snap.key,
+
+                    });
+                    console.log(this.state.id);
+                }
+            })
+        });
+
+
+
+    };
 
     render(){
+        let count=0;
         return(
             <div className='txtList'>
 
@@ -42,8 +65,9 @@ class TxtList extends React.Component{
                 </div>
                     <ul>
                         {this.state.text.map((el)=>{
-
-                            return(<li>{el}</li>)
+                            count++;
+                            return(<li key={count}>{el}
+                            <button onClick={this.handleRemoveTxt}>usuń</button></li>)
 
                         })}
                     </ul>

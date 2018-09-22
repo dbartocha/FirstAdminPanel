@@ -24,6 +24,7 @@ class MainPage extends React.Component {
 
                     </ul>
                 </div>
+
             </div>
         )
 

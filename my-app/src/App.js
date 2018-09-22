@@ -11,6 +11,8 @@ import List from './list/jsx/list';
 import MainPage from './mainPage/jsx/mainPage'
 import UploadTxt from './uploadTxt/jsx/uploadTxt'
 import TxtList from './textlist/jsx/txtList'
+import Menu from './menu/jsx/menu'
+
 class App extends Component {
     render() {
         return (
@@ -18,11 +20,12 @@ class App extends Component {
                 <div>
                     <Switch>
                         <Route exact path='/' component={SignIn}/>
-                        <Route exact path='/main' component={MainPage}/>
-                        <Route exact path='/upload' component={Upload}/>
-                        <Route exact path='/list' component={List}/>
-                        <Route exact path='/uploadtxt' component={UploadTxt}/>
-                        <Route exact path='/txtlist' component={TxtList}/>
+                        <Route path='/menu' component={Menu}/>
+                        <Route path='/main' component={MainPage}/>
+                        <Route path='/upload' component={Upload}/>
+                        <Route path='/list' component={List}/>
+                        <Route path='/uploadtxt' component={UploadTxt}/>
+                        <Route path='/txtlist' component={TxtList}/>
                     </Switch>
                 </div>
             </HashRouter>

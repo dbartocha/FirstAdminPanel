@@ -25,21 +25,7 @@ class UploadTxt extends React.Component{
     };
 
 
-    componentDidMount(){
 
-        firebase.database().ref('text').on("value", snap=> {
-
-            const val=snap.val();
-
-
-
-        this.setState({
-            url:val
-        })
-
-        })
-
-    }
 
     handleUploadTxt=(folder)=> {
         firebase.database().ref(folder).push(this.state.txt).then()
@@ -49,17 +35,17 @@ class UploadTxt extends React.Component{
 
     render() {
 
-console.log(this.state.txt);
+
 
         return (
             <div className="uploadCentre">
 
                 <div className="uploadItem">
-                    <span style={{color:'black', textAlign:'center',fontSize:'25px',marginLeft:'150px', marginTop:'10px'}}>Dodawanie Zdjęć</span>
+                    <span style={{color:'black', textAlign:'center',fontSize:'25px',marginLeft:'150px', marginTop:'10px'}}>Dodawanie Tekstu</span>
                     <div style={{marginTop:'8%'}}>
                         <progress value={this.state.percentage} max="100" className="uploader" id='percentage'>0%</progress>
 
-                        <input style={{color:'black'}} type="text" onChange={this.handleChange} id='txt' onClick={this.handleClick}/>
+                        <textarea style={{color:'black'}} type="text" onChange={this.handleChange} id='txt' onClick={this.handleClick}/>
                         <div className="centerButtons">
                             <div className='overUploadButton'>
 

@@ -1,0 +1,17 @@
+.menuClass {
+  padding-top: -10px;
+  left: -2000px;
+  background: #272c33;
+  width: 300px;
+  height: 100vh;
+  border-radius: 3px; }
+
+.menuColors {
+  color: #858b94; }
+  .menuColors:hover {
+    color: white; }
+
+.needLi li {
+  cursor: pointer;
+  padding-top: 30px;
+  font-size: 20px; }
